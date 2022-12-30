@@ -1,10 +1,20 @@
-import {View, Text, StyleSheet, TouchableOpacity, FlatList, ActivityIndicator, TextInput} from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  TouchableOpacity,
+  FlatList,
+  ActivityIndicator,
+  TextInput,
+} from 'react-native';
 import React, {useEffect, useState} from 'react';
 import ItemProduct from '../itemProduct/item';
 
 const FurnitureScreen = ({navigation}) => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [filterData, setFilterData] = useState([]);
+
   const callApi = async () => {
     try {
       const response = await fetch(
@@ -12,6 +22,7 @@ const FurnitureScreen = ({navigation}) => {
       );
       const json = await response.json();
       setData(json);
+      setFilterData(json);
       setLoading(false);
     } catch (error) {
       console.log(error);
@@ -21,9 +32,28 @@ const FurnitureScreen = ({navigation}) => {
   useEffect(() => {
     callApi();
   }, []);
+
+  const handleSearch = text => {
+    if (text) {
+      //TH1 text is empty = false
+      const arrNew = filterData.filter(item => {
+        return item.title.toUpperCase().indexOf(text.toUpperCase()) > -1;
+      });
+      setData(arrNew);
+    } else {
+      setData(filterData);
+    }
+  };
+
   return (
     <View style={styles.container}>
-      <TextInput style={styles.input} placeholder="Search...." />
+      <TextInput
+        style={styles.input}
+        placeholder="Search...."
+        onChangeText={text => {
+          handleSearch(text);
+        }}
+      />
       {loading ? (
         <ActivityIndicator style={{flex: 1}} size="large" />
       ) : (

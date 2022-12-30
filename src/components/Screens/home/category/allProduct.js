@@ -30,12 +30,11 @@ const AllProductScreen = ({navigation}) => {
     callApi();
   }, []);
 
-
   const handleSearch = text => {
     if (text) {
       //TH1 text is empty = false
       const arrNew = filterData.filter(item => {
-        return item.title.indexOf(text) > -1;
+        return item.title.toUpperCase().indexOf(text.toUpperCase()) > -1;
       });
       setData(arrNew);
     } else {
