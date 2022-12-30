@@ -6,7 +6,7 @@ const FurnitureScreen = ({navigation}) => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const callApi = async () => {
-    try { 
+    try {
         // s
       const response = await fetch(
         'https://api.escuelajs.co/api/v1/categories/3/products',
