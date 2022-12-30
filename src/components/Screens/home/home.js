@@ -46,7 +46,7 @@ const Home = () => {
         <Tab.Screen component={AllProductScreen} name="AllProduct" />
         <Tab.Screen component={ClothesScreen} name="Clothes" />
         <Tab.Screen component={FurnitureScreen} name="Furniture" />
-        <Tab.Screen component={ElectronicsScreen} name="Electronics" />
+        <Tab.Screen component={ElectronicsScreen} name="Shoes" />
       </Tab.Navigator>
     </View>
   );
