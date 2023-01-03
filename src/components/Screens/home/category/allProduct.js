@@ -32,7 +32,6 @@ const AllProductScreen = ({navigation}) => {
 
   const handleSearch = text => {
     if (text) {
-      //TH1 text is empty = false
       const arrNew = filterData.filter(item => {
         return item.title.toUpperCase().indexOf(text.toUpperCase()) > -1;
       });
@@ -53,7 +52,7 @@ const AllProductScreen = ({navigation}) => {
       />
       {loading ? (
         <ActivityIndicator style={{flex: 1}} size="large" />
-      ) : (
+      ) : data.length !== 0 ? (
         <FlatList
           data={data}
           numColumns={2}
@@ -76,6 +75,12 @@ const AllProductScreen = ({navigation}) => {
             );
           }}
         />
+      ) : (
+        <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+          <Text style={{fontSize: 25, fontWeight: 'bold'}}>
+            No Result Found
+          </Text>
+        </View>
       )}
     </View>
   );

@@ -35,7 +35,6 @@ const ClothesScreen = ({navigation}) => {
 
   const handleSearch = text => {
     if (text) {
-      //TH1 text is empty = false
       const arrNew = filterData.filter(item => {
         return item.title.toUpperCase().indexOf(text.toUpperCase()) > -1;
       });
