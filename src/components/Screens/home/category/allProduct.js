@@ -6,6 +6,7 @@ import {
   ActivityIndicator,
   FlatList,
   TouchableOpacity,
+  Alert,
 } from 'react-native';
 import React, {useState, useEffect, Component} from 'react';
 import ItemProduct from '../itemProduct/item';
@@ -18,8 +19,20 @@ const AllProductScreen = ({navigation}) => {
     try {
       const response = await fetch('https://api.escuelajs.co/api/v1/products');
       const json = await response.json();
-      setData(json);
-      setFilterData(json);
+      // console.log(response.status);
+      if (response.status === 500) {
+        Alert.alert('Notification', 'Server Error', [
+          {
+            text: 'Cancel',
+            onPress: () => console.log('Cancel Pressed'),
+            style: 'cancel',
+          },
+          // {text: 'OK', onPress: () => console.log('OK Pressed')},
+        ]);
+      } else {
+        setData(json);
+        setFilterData(json);
+      }
       setLoading(false);
     } catch (error) {
       console.log(error);
