@@ -1,18 +1,101 @@
-import { View, Text, StyleSheet } from 'react-native'
-import React from 'react'
+import {View, Text, StyleSheet, Image, ImageBackground} from 'react-native';
+import React from 'react';
 
 const UserScreen = () => {
   return (
-    <View>
-      <Text>UserScreen</Text>
+    <View style={{flex: 1, backgroundColor: 'white'}}>
+      <ImageBackground
+        style={style.headerBackGround}
+        source={{
+          uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTz6FOCo35CJu6oDizL-rBOxFRoB_txplyFcOpAlSP2-qpUJar1J9n0FfZWBvEcCZ_Yz1w&usqp=CAU',
+        }}
+        blurRadius={3}>
+        <Image
+          style={style.avata}
+          source={{
+            uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTz6FOCo35CJu6oDizL-rBOxFRoB_txplyFcOpAlSP2-qpUJar1J9n0FfZWBvEcCZ_Yz1w&usqp=CAU',
+          }}
+        />
+      </ImageBackground>
+      <View style={style.body}>
+        <Text style={{fontSize: 20, fontWeight: 'bold', color: 'black'}}>
+          Nguyen Tuan
+        </Text>
+        <View style={{flex: 1, width: '100%', padding: 10}}>
+          <Text style={{color: '#9775FA', fontWeight: 'bold'}}>Name</Text>
+          <Text
+            style={{
+              borderBottomWidth: 1,
+              paddingVertical: 10,
+              borderBottomColor: 'silver',
+              color: 'black',
+              marginBottom: 20,
+            }}>
+            Nguyen Anh Tuan
+          </Text>
+          <Text style={{color: '#9775FA', fontWeight: 'bold'}}>Email</Text>
+          <Text
+            style={{
+              borderBottomWidth: 1,
+              paddingVertical: 10,
+              borderBottomColor: 'silver',
+              color: 'black',
+              marginBottom: 20,
+            }}>
+            tuannaph21878@fpt.edu.vn
+          </Text>
+          <Text style={{color: '#9775FA', fontWeight: 'bold'}}>Address</Text>
+          <Text
+            style={{
+              borderBottomWidth: 1,
+              paddingVertical: 10,
+              borderBottomColor: 'silver',
+              color: 'black',
+              marginBottom: 20,
+            }}>
+            Quan Hoan Kiem - Thanh Pho Ha Noi - Viet Nam
+          </Text>
+          <Text style={{color: '#9775FA', fontWeight: 'bold'}}>Password</Text>
+          <Text
+            style={{
+              borderBottomWidth: 1,
+              paddingVertical: 10,
+              borderBottomColor: 'silver',
+              color: 'black',
+              marginBottom: 20,
+            }}>
+            NguyenAnhTuan
+          </Text>
+        </View>
+      </View>
     </View>
-  )
-}
+  );
+};
 
 const style = StyleSheet.create({
   container: {
-    
-  }
-})
+    flex: 1,
+  },
+  avata: {
+    width: 100,
+    height: 100,
+    borderRadius: 100,
+    marginTop: 240,
+  },
 
-export default UserScreen
+  headerBackGround: {
+    width: '100%',
+    height: 250,
+    // borderWidth: 1,
+    justifyContent: 'center',
+    resizeMode: 'cover',
+    alignItems: 'center',
+  },
+  body: {
+    marginTop: 55,
+    height: '100%',
+    alignItems: 'center',
+  },
+});
+
+export default UserScreen;
