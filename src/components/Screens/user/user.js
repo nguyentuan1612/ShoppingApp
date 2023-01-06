@@ -3,20 +3,20 @@ import React from 'react';
 
 const UserScreen = () => {
   return (
-    <View style={{flex: 1, backgroundColor: 'white'}}>
+    <View style={{flex: 1, backgroundColor: 'white', alignItems: 'center'}}>
       <ImageBackground
         style={style.headerBackGround}
         source={{
           uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTz6FOCo35CJu6oDizL-rBOxFRoB_txplyFcOpAlSP2-qpUJar1J9n0FfZWBvEcCZ_Yz1w&usqp=CAU',
         }}
-        blurRadius={3}>
-        <Image
-          style={style.avata}
-          source={{
-            uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTz6FOCo35CJu6oDizL-rBOxFRoB_txplyFcOpAlSP2-qpUJar1J9n0FfZWBvEcCZ_Yz1w&usqp=CAU',
-          }}
-        />
-      </ImageBackground>
+        blurRadius={3}></ImageBackground>
+
+      <Image
+        style={style.avata}
+        source={{
+          uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTz6FOCo35CJu6oDizL-rBOxFRoB_txplyFcOpAlSP2-qpUJar1J9n0FfZWBvEcCZ_Yz1w&usqp=CAU',
+        }}
+      />
       <View style={style.body}>
         <Text style={{fontSize: 20, fontWeight: 'bold', color: 'black'}}>
           Nguyen Tuan
@@ -64,7 +64,7 @@ const UserScreen = () => {
               color: 'black',
               marginBottom: 20,
             }}>
-            NguyenAnhTuan
+            **************
           </Text>
         </View>
       </View>
@@ -80,7 +80,9 @@ const style = StyleSheet.create({
     width: 100,
     height: 100,
     borderRadius: 100,
-    marginTop: 240,
+    marginTop: 200,
+    position: 'absolute',
+    zIndex: 9999999,
   },
 
   headerBackGround: {
@@ -93,7 +95,10 @@ const style = StyleSheet.create({
   },
   body: {
     marginTop: 55,
+    // backgroundColor: 'blue',
+    paddingHorizontal: 20,
     height: '100%',
+    width: '100%',
     alignItems: 'center',
   },
 });
